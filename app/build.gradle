@@ -1,0 +1,100 @@
+plugins {
+    id 'com.android.application'
+//    id  'com.xuexiang.xrouter'
+}
+
+android {
+    namespace 'com.example.zue'
+    compileSdk 32
+
+    defaultConfig {
+        applicationId "com.example.zue"
+        minSdk 29
+        targetSdk 32
+        versionCode 1
+        versionName "1.0"
+
+        multiDexEnabled true
+        testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
+        javaCompileOptions {
+            annotationProcessorOptions {
+                arguments = [ moduleName : project.getName() ]
+            }
+        }
+    }
+
+    buildTypes {
+        release {
+            minifyEnabled false
+            proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
+        }
+    }
+    compileOptions {
+        sourceCompatibility JavaVersion.VERSION_1_8
+        targetCompatibility JavaVersion.VERSION_1_8
+    }
+    buildFeatures {
+        viewBinding true
+    }
+}
+
+dependencies {
+    implementation fileTree(include: ['*.jar'], dir: 'libs')
+    implementation 'com.github.JeffMony:ORCodeDemo:v1.5.0'
+    implementation 'pub.devrel:easypermissions:2.0.1'
+    implementation 'com.github.JeffMony:Laker:1.0.6'
+    implementation project(path: ':playersdk')
+    implementation project(path: ':exoplayer')
+    implementation 'androidx.constraintlayout:constraintlayout:2.1.4'
+    // XPage
+    implementation project(':xpage-lib')
+    annotationProcessor project(':xpage-compiler')
+    // 图标库
+    implementation "com.mikepenz:iconics-core:4.0.2"
+    // 图标库控件（可选）
+    implementation "com.mikepenz:iconics-views:4.0.2"
+    // Multidex
+    implementation "androidx.multidex:multidex:2.0.1"
+    // Xui
+    implementation 'com.github.xuexiangjys:XUI:1.2.0'
+//    implementation 'androidx.appcompat:appcompat:1.3.1'
+    implementation 'androidx.recyclerview:recyclerview:1.2.1'
+//    implementation 'com.google.android.material:material:1.4.0'
+    implementation 'com.github.bumptech.glide:glide:4.12.0'
+    // MMkv
+//    implementation 'com.tencent:mmkv:1.2.10'
+    // XUtils
+    implementation 'com.github.xuexiangjys.XUtil:xutil-core:2.0.0'
+    implementation 'com.github.xuexiangjys.XUtil:xutil-sub:2.0.0'
+    // XPage
+    // implementation 'com.github.xuexiangjys.XPage:xpage-lib:3.4.0'
+    // annotationProcessor 'com.github.xuexiangjys.XPage:xpage-compiler:3.4.0'
+    // Keeplive
+    implementation 'com.fanjun:keeplive:1.1.22'
+    // PictureSelector
+    implementation 'com.github.xuexiangjys.PictureSelector:picture-core:1.0.5'
+    // XRouter
+    implementation 'com.github.xuexiangjys.XRouter:xrouter-runtime:1.1.0'
+    annotationProcessor 'com.github.xuexiangjys.XRouter:xrouter-compiler:1.1.0'
+    // XAop
+    implementation 'com.github.xuexiangjys.XAOP:xaop-runtime:1.0.5'
+//    implementation 'com.github.xuexiangjys.XAOP:xaop-plugin:1.1.0'
+    // XOrmlite
+    implementation 'com.github.xuexiangjys.XOrmlite:xormlite-runtime:1.0.2'
+    annotationProcessor 'com.github.xuexiangjys.XOrmlite:xormlite-compiler:1.0.2'
+    // XTask
+    implementation 'com.github.xuexiangjys.XTask:xtask-core:1.0.2'
+    // XHttp
+    implementation 'com.github.xuexiangjys:XHttp2:2.0.4'
+    implementation 'com.google.code.gson:gson:2.8.5'
+    implementation 'com.squareup.okhttp3:okhttp:3.10.0'
+    implementation 'io.reactivex.rxjava2:rxjava:2.2.0'
+    implementation 'io.reactivex.rxjava2:rxandroid:2.1.0'
+    //
+    implementation 'androidx.appcompat:appcompat:1.4.1'
+    implementation 'com.google.android.material:material:1.5.0'
+    implementation 'androidx.constraintlayout:constraintlayout:2.1.3'
+    testImplementation 'junit:junit:4.13.2'
+    androidTestImplementation 'androidx.test.ext:junit:1.1.3'
+    androidTestImplementation 'androidx.test.espresso:espresso-core:3.4.0'
+}
